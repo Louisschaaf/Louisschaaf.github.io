@@ -1,82 +1,219 @@
 body {
- background: #102131;
+    background: linear-gradient(130deg, #020617, #0f172a, #1e293b);
+    background-size: 200% 200%;
+    color: #f8fafc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; /* Prevents scrolling while swiping */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    animation: skyShift 16s ease infinite;
 }
 
-#container {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  margin: auto;
-  transform: rotate(45deg);
-  top: 0; bottom: 0; left: 0; right: 0;
-}
-.center {
-  height: 300px;
-  display: -webkit-flex;
-  display:         flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
+body::before {
+    content: '';
+    position: fixed;
+    inset: -20vmax;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.2), transparent 35%),
+        radial-gradient(circle at 80% 30%, rgba(34, 197, 94, 0.18), transparent 40%),
+        radial-gradient(circle at 50% 85%, rgba(148, 163, 184, 0.14), transparent 38%);
+    filter: blur(10px);
+    animation: blobDrift 20s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
 }
 
-h1 {
-  color: #2c5a86;
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
+    animation: gridSlide 26s linear infinite;
+    pointer-events: none;
+    z-index: 0;
 }
 
-/**
- * ==============================================
- * Dot Flashing
- * ==============================================
- */
-.dot-flashing {
-  position: relative;
-  margin-top: 10px;
-  margin-left: 5px;
-  width: 8px;
-  height: 8px;
-  border-radius: 5px;
-  background-color: #2c5a86;
-  color: #2c5a86;
-  animation: dotFlashing 1s infinite linear alternate;
-  animation-delay: 0s;
+.tinder {
+    position: relative;
+    width: 90vw;
+    max-width: 400px;
+    height: 70vh;
+    z-index: 1;
 }
 
-.dot-flashing::before, .dot-flashing::after {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  top: 0;
+.tinder--cards {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
-.dot-flashing::before {
-  left: 15px;
-  width: 8px;
-  height: 8px;
-  border-radius: 5px;
-  background-color: #2c5a86;
-  color: #2c5a86;
-  animation: dotFlashing 1s infinite alternate;
-  animation-delay: 0.5s;
+.tinder--card {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background: #1e293b;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #334155;
+    transition: transform 0.3s ease-out;
+    cursor: grab;
 }
 
-.dot-flashing::after {
-  left: 30px;
-  width: 8px;
-  height: 8px;
-  border-radius: 5px;
-  background-color: #2c5a86;
-  color: #2c5a86;
-  animation: dotFlashing 1s infinite alternate;
-  animation-delay: 1s;
+.tinder--card img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    pointer-events: none; /* Prevents image dragging */
 }
 
-@keyframes dotFlashing {
-  0% {
-    background-color: #2c5a86;
-  }
-  50%,
-  100% {
-    background-color: #ebe6ff;
-  }
+.tinder--card h3 {
+    margin: 15px;
+    color: #38bdf8; /* Tech Blue */
+}
+
+.tinder--card p {
+    margin: 0 15px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.tinder--buttons {
+    position: absolute;
+    bottom: -80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#nope { background: #ef4444; color: white; }
+#love { background: #22c55e; color: white; }
+
+.tinder--card .card-content {
+    padding: 10px 16px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.tinder--card ul {
+    text-align: left;
+    font-size: 0.82rem;
+    color: #cbd5e1;
+    padding-left: 18px;
+    margin: 8px 0 0;
+}
+
+.tinder--card li {
+    margin-bottom: 7px;
+    line-height: 1.4;
+}
+
+.card-tag {
+    background: #38bdf8;
+    color: #0f172a;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 3px 9px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 12px 0 0 15px;
+}
+
+/* Text-only card layout */
+.tinder--card.card--text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22px 20px 18px;
+    overflow: hidden;
+}
+
+.card--text h3 {
+    margin: 0 0 2px;
+}
+
+.card--text .card-tag {
+    margin: 0 0 10px 0;
+}
+
+.card--text ul {
+    margin: 10px 0 0;
+}
+
+.card--text p {
+    margin: 0 0 4px;
+}
+
+/* Meta / subdued label */
+.card-meta {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin: 2px 0 6px !important;
+}
+
+/* Section block inside a text card */
+.card-block {
+    margin: 8px 0;
+}
+
+/* Divider line */
+.card-divider {
+    border: none;
+    border-top: 1px solid #334155;
+    margin: 10px 0;
+}
+
+/* Tag chips */
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 10px;
+}
+
+.tag {
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+@keyframes skyShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes blobDrift {
+    0% { transform: translate3d(-2%, -2%, 0) scale(1); }
+    100% { transform: translate3d(3%, 2%, 0) scale(1.08); }
+}
+
+@keyframes gridSlide {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(44px, 44px, 0); }
 }

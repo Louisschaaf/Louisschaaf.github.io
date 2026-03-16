@@ -1,15 +1,170 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="/src/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev-Binder | Portfolio</title>
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
-<h1 class="center">Portfolio being loaded<span class="dot-flashing"></span></h1>
-<canvas id="container" width="200" height="200"></canvas>
+    <div class="tinder">
+        <div class="tinder--status">
+            <i class="fa fa-remove"></i>
+            <i class="fa fa-heart"></i>
+        </div>
+
+        <div class="tinder--cards">
+
+            <!-- Card 1: Profile -->
+            <div class="tinder--card">
+                <img src="src/assets/img/profile.jpg" alt="Louis Schaaf">
+                <div class="card-content">
+                    <h3>Louis Schaaf</h3>
+                    <p class="card-meta">Industrial Engineer · Computer Science</p>
+                    <p>Curious builder focused on applied AI, cyber security, and autonomous engineering systems. Currently completing a master's thesis on tethered UAVs at KU Leuven.</p>
+                    <div class="card-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">ROS 2</span>
+                        <span class="tag">AI / ML</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">IoT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Thesis -->
+            <div class="tinder--card">
+                <img src="src/assets/img/warthog.png" alt="Clearpath Warthog UGV">
+                <div class="card-content">
+                    <div class="card-tag">Current Research</div>
+                    <h3>Tethered Drone Platform</h3>
+                    <p class="card-meta">ACRO Research Group · KU Leuven · 2025</p>
+                    <p>Tethered UAV mounted on an autonomous UGV for extended-endurance, GPS-denied field operations.</p>
+                    <div class="card-tags">
+                        <span class="tag">ROS 2</span>
+                        <span class="tag">UAV</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Education -->
+            <div class="tinder--card card--text">
+                <div>
+                    <h3>Education</h3>
+                    <p class="card-meta">Academic background</p>
+                    <div class="card-block">
+                        <p><strong>Master in Industrial Engineering – CS</strong></p>
+                        <p class="card-meta">Hasselt University · Magna cum laude</p>
+                        <p>Specialisation in AI, control systems, and embedded software.</p>
+                    </div>
+                    <hr class="card-divider">
+                    <div class="card-block">
+                        <p><strong>Bachelor in Information Technology</strong></p>
+                        <p class="card-meta">UC Leuven-Limburg · Cum laude</p>
+                        <p>Focus on software development, networking, and IoT systems.</p>
+                    </div>
+                </div>
+                <div class="card-tags">
+                    <span class="tag">AI</span>
+                    <span class="tag">Control Systems</span>
+                    <span class="tag">Networking</span>
+                    <span class="tag">IoT</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Industrial Ambient Feedback -->
+            <div class="tinder--card card--text">
+                <div>
+                    <div class="card-tag" style="margin: 0 0 12px;">Bachelor Thesis</div>
+                    <h3>Industrial Ambient Feedback</h3>
+                    <p class="card-meta">DFL · UHasselt · 2021</p>
+                    <p>Ambient light guidance system that silently highlights required parts in industrial assembly — reducing operator errors without disrupting workflow.</p>
+                    <hr class="card-divider">
+                    <ul>
+                        <li>LED matrix controller synced with ERP part-picking data</li>
+                        <li>Low-latency MQTT communication layer</li>
+                        <li>~40% reduction in pick errors in user testing</li>
+                    </ul>
+                </div>
+                <div class="card-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">MQTT</span>
+                    <span class="tag">Arduino</span>
+                    <span class="tag">Industrial UX</span>
+                </div>
+            </div>
+
+            <!-- Card 5: Autonomous Systems & ML -->
+            <div class="tinder--card card--text">
+                <div>
+                    <h3>Autonomous Systems &amp; ML</h3>
+                    <p class="card-meta">Academic &amp; research projects</p>
+                    <ul>
+                        <li><strong>Autonomous Navigation</strong> — full ROS pipeline for the Tiago: SLAM, path planning, obstacle avoidance</li>
+                        <li><strong>Crowd Analytics</strong> — YOLOv3 real-time crowd density classifier for public safety monitoring</li>
+                        <li><strong>BYOM Platform</strong> — zero-code ML model deployment environment for non-technical users</li>
+                    </ul>
+                </div>
+                <div class="card-tags">
+                    <span class="tag">ROS</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">YOLOv3</span>
+                    <span class="tag">TensorFlow</span>
+                    <span class="tag">OpenCV</span>
+                </div>
+            </div>
+
+            <!-- Card 6: IoT & Cloud -->
+            <div class="tinder--card card--text">
+                <div>
+                    <h3>IoT &amp; Cloud Development</h3>
+                    <p class="card-meta">Engineering projects across embedded &amp; cloud</p>
+                    <ul>
+                        <li><strong>MediBand</strong> — IoT bandage with embedded temp/moisture sensors streaming to a patient dashboard</li>
+                        <li><strong>Drink Exchange</strong> — real-time variable-rate pricing web app edge-hosted on Cloudflare Workers</li>
+                        <li><strong>Chatroom</strong> — distributed multi-room chat service with WebSocket messaging and presence state</li>
+                    </ul>
+                </div>
+                <div class="card-tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Cloudflare</span>
+                    <span class="tag">WebSocket</span>
+                    <span class="tag">MQTT</span>
+                    <span class="tag">Embedded C</span>
+                </div>
+            </div>
+
+            <!-- Card 7: Skills -->
+            <div class="tinder--card card--text">
+                <div>
+                    <h3>Skills &amp; Highlights</h3>
+                    <p class="card-meta">Languages, tools, and experience</p>
+                    <ul>
+                        <li><strong>Programming:</strong> Python, JavaScript, C++, C, C#, SQL, Java</li>
+                        <li><strong>Tools &amp; Platforms:</strong> ROS 2, Docker, Git, Linux, TensorFlow, OpenCV</li>
+                        <li><strong>Languages:</strong> Dutch (native), English (C2 EF SET), French (conversational)</li>
+                        <li><strong>Leadership:</strong> Head leader at KLJ Wolfsdonk youth organisation (3+ years)</li>
+                    </ul>
+                </div>
+                <div class="card-tags">
+                    <span class="tag">Dutch</span>
+                    <span class="tag">English C2</span>
+                    <span class="tag">French</span>
+                    <span class="tag">Rijbewijs A</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tinder--buttons">
+            <button id="nope">Nope</button>
+            <button id="love">Like</button>
+        </div>
+    </div>
+
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <script src="src/js/script.js"></script>
 </body>
-<script type="text/javascript" src="/src/js/loadingScreen.js"></script>
-<script>setTimeout(function() {
-    window.location.href = "portfolio.html";
-}, 1000);</script>
 </html>
